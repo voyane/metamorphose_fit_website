@@ -1,80 +1,22 @@
-
-//--------------DropDown-----------------------
-const dropdowns = document.querySelectorAll('.dropdown');
-
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
-
-    select.addEventListener('click', e => {
-        e.stopPropagation();
-
-        // fecha os outros
-        dropdowns.forEach(other => {
-            if (other !== dropdown) {
-                other.querySelector('.menu').classList.remove('menu-open');
-                other.querySelector('.caret').classList.remove('rotate');
-            }
-        });
-
-        menu.classList.toggle('menu-open');
-        caret.classList.toggle('rotate');
-    });
-
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            selected.innerText = option.innerText;
-
-            menu.classList.remove('menu-open');
-            caret.classList.remove('rotate');
-
-            options.forEach(o => o.classList.remove('active'));
-            option.classList.add('active');
-        });
-    });
-});
-
-// fecha dropdown ao clicar fora
-document.addEventListener('click', e => {
-    if (!e.target.closest('.dropdown')) {
-        dropdowns.forEach(dropdown => {
-            dropdown.querySelector('.menu').classList.remove('menu-open');
-            dropdown.querySelector('.caret').classList.remove('rotate');
-        });
-    }
-});
-
-//---------menu-toggle------------------
-const menuToggle = document.getElementById('menu-toggle');
+const menuBar = document.getElementById('menu-bars');
 const navMenu = document.getElementById('nav-menu');
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
+menuBar.addEventListener('click', () => {
+    menuBar.classList.toggle('active');
     navMenu.classList.toggle('active');
 });
-
-//-------Voltar-------------------
-const btnBack = document.getElementById('btn-back');
-btnBack.addEventListener('click', () =>{
-    navMenu.classList.remove('active');
-    menuToggle.classList.remove('active');
-})
 
 // FECHAR MENU AO CLICAR FORA (MOBILE)
 document.addEventListener('click', (e) => {
 
     const isClickInsideMenu = navMenu.contains(e.target);
-    const isClickOnToggle = menuToggle.contains(e.target);
+    const isClickOnToggle = menuBar.contains(e.target);
 
     if (!isClickInsideMenu && !isClickOnToggle) {
         navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
+        menuBar.classList.remove('active');
     }
 
 });
-
 //-------------------Comprar Whatsapp-----
 function comprarWhatsapp(){
     const numero = "258845421616";
@@ -146,4 +88,33 @@ function addToCart(botao){
     const url = `https://wa.me/${contacto}?text=${notificacao}`;
 
     window.open(url, "_blank");
+}
+
+//-------------CHAT-----------------------
+function toggleChat(){
+    const chatBox = document.getElementById("chatBox");
+    chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+}
+function sendMessage(){
+    const input = document.getElementById("chatInput");
+    const chatBody = document.getElementById("chatBody");
+
+    if(input.value.trim() === "") return;
+
+    // Mensagem do usuário
+    const userMsg = document.createElement("div");
+    userMsg.classList.add("user-message");
+    userMsg.textContent = input.value;
+    chatBody.appendChild(userMsg);
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Enviar para WhatsApp
+    const numero = "258845421616"; // seu número
+    const texto = encodeURIComponent(input.value);
+    const url = `https://wa.me/${numero}?text=${texto}`;
+    
+    window.open(url, "_blank");
+
+    input.value = "";
 }

@@ -1,0 +1,303 @@
+@font-face{
+    font-family: 'bozon';
+    src: url('../bozon/ROHH\ \ Bozon\ Regular.otf') format('opentype');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'bozon';
+}
+body::before{
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #16a34a 0%,#ffffff 50%,#223FAD 100%);
+    background-size: 300% 300%; 
+    filter: blur(150px);
+    opacity: 0.4;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: #F97316;
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+}
+.logo{
+    gap: 20px;
+    animation: spin 10s linear infinite;
+    transform-style: preserve-3d;
+}
+.logo .nav-logo img{
+    width: 100px;
+    cursor: pointer;
+}
+@keyframes spin{
+    from{
+        transform: rotateY(0deg);
+    }to{
+        transform: rotateY(360deg);
+    }
+}
+
+/*---------------Menu Bars-------------*/
+.menu-bars{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;   
+}
+.menu-bars span{
+    width: 30px;
+    height: 4px;
+    background-color: #040A0D;
+    transition: 0.5s ease-in-out;
+}
+.menu-bars.active span:nth-child(1){
+    top: 13px;
+    transform: rotate(-45deg);
+}
+
+.menu-bars.active span:nth-child(2){
+    opacity: 0;
+}
+
+.menu-bars.active span:nth-child(3){
+    bottom: auto;
+    top: 13px;
+    transform: rotate(45deg);
+}
+/*---------------Nav Menu--------------------*/
+.nav-menu{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+.nav-menu .nav-link{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: .6s ease;
+    padding: 10px;
+}
+.nav-menu .nav-link:hover{
+    background-color: #16a34a;
+    color: #F97316;
+}
+.nav-menu.active{
+    right: 0;
+}
+/* ================= 1024px ================= */
+@media (max-width:1024px){
+    .navbar{
+        padding: 10px 30px;
+    }
+    .nav-menu{
+        gap: 16px;
+    }
+    .nav-menu .nav-link{
+        font-size: 16px;
+    }
+}
+/* ================= 768px ================= */
+@media (max-width:768px){
+    .menu-bars{
+        display: flex;
+
+    }
+    .nav-menu{
+        position: fixed;
+        top: 14%;
+        right: -100%;
+        width: 60%;
+        height: calc(100vh - 80px);
+
+        background-color: #F97316;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        transition: 0.4s ease-in-out;
+    }
+    .nav-menu .nav-link{
+        font-size: 22px;
+    }
+}
+/* ================= 450px ================= */
+@media (max-width:450px){
+    .navbar{
+        padding: 10px 20px;
+        background-color: #16a34a;
+    }
+        .nav-menu{
+        width: 100%;
+    }
+    .logo .nav-logo img{
+        width: 100px;
+    }
+    .nav-menu .nav-link{
+        font-size: 20px;
+    }
+}
+
+/*--------------Artigo Section -------------------*/
+.artigo-section{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px ;
+
+}
+.artigo-title h2{
+    background-color: #16a34a;
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff;
+    font-family: 'gladies';
+    letter-spacing: 3px;
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+.artigo-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.artigo-card{
+    border:1px solid #eee;
+    padding:20px;
+    text-align:center;
+    background:#fff;
+    transition:0.6s ease;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+.artigo-card:hover{
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+}
+.artigo-card img{
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+}
+.artigo-card h3{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.artigo-card .price-artigo{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.artigo-card .verMais{
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #223FAD;
+    color: #fff;
+    transition: .6s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+.artigo-card .verMais:hover{
+    background-color: #F97316;
+    border-color: #223FAD;
+    color: #040A0D;
+}
+.detail{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.detail .title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.produto-preco{
+    color:#F97316;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.detail-scroll{
+    max-height:200px;
+    overflow-y:auto;
+    padding-right:5px;
+}
+
+.checkout button{
+    margin-top:10px;
+    padding:10px 20px;
+    border:none;
+    background:#16a34a;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/*-----------------Ocultar Página-------------------------*/
+.pagina-produto{
+    display:none;
+    max-width:1000px;
+    margin:120px auto;
+    padding:40px;
+}
+
+.produto-detalhe{
+    text-align:center;
+}
+
+.produto-detalhe img{
+    width:300px;
+    margin-bottom:20px;
+}
+
+.voltar{
+    padding:10px 20px;
+    border:none;
+    background:#F97316;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:20px;
+}

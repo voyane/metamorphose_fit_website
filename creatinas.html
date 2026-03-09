@@ -7,58 +7,35 @@
     <title>Creatinas</title>
 </head>
 <body>
-    <nav class="container">
+     <!--Nav bar-->
+    <nav class="navbar">
         <div class="logo">
-            <a href="home.html">
-                <img src="img/meta_logo-removebg-preview.png" alt="">
+            <a href="index.html" class="nav-logo">
+                <img src="img/meta_logo-removebg-preview.png" alt="" class="nav-image">
             </a>
         </div>
-        <div class="menu-toggle" id="menu-toggle">
+        <div class="menu-bars" id="menu-bars">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <div class="dropdown-content" id="nav-menu">
-            <button class="btn-back" id="btn-back">
-                <img src="./img/arrow-left.png" alt="">
-            </button>
-            <div class="dropdown">
-                <div class="select">
-                    <span class="selected">SUPLEMENTOS</span>
-                    <div class="caret"></div>
-                </div>
-                <ul class="menu">
-                    <li><a href="hipercalóricos.html">HIPERCALÓRICOS</a></li>
-                    <li><a href="proteinas.html">PROTEÍNAS</a></li>
-                    <li><a href="creatinas.html">CREATINAS</a></li>
-                    <li><a href="vitaminas.html">VITAMINAS</a></li>
-                    <li><a href="termogenicos.html">TERMOGÊNICOS</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <div class="select">
-                    <span class="selected">SOBRE</span>
-                    <div class="caret"></div>
-                </div>
-                <ul class="menu">
-                    <li><a href="sobre.html#quem-somos">QUEM SOMOS</a></li>
-                    <li><a href="sobre.html#missao">MISSÃO</a></li>
-                    <li><a href="sobre.html#visao">VISÃO</a></li>
-                    <li><a href="sobre.html#compromisso">COMPROMISSO</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <div class="select">
-                    <span class="selected">CONTACTO</span>
-                    <div class="caret"></div>
-                </div>
-                <ul class="menu">
-                    <li><a href="contacto.html">CONTACTO</a></li>
-                    <li><a href="contacto.html">WHATSAPP</a></li>
-                    
-                </ul>
-            </div>
-        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#about-section" class="nav-link">SOBRE</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#product-section" class="nav-link">PRODUTOS</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#testimonials-section" class="nav-link">TESTEMUNHOS</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contact-section" class="nav-link">CONTACTO</a>
+            </li>
+        </ul>
     </nav>
     <div class="carousel">
         <div class="list">
@@ -79,8 +56,11 @@
                         </ol>
                     </div>
                     <button class="seeMore">
-                        See more &#8599
+                        Ver mais &#8599
                     </button>
+                    <a href="index.html#product-section" class="back_index">
+                        Voltar &#8592
+                    </a>
                 </div>
                 <div class="detail">
                     <div class="title">
@@ -161,8 +141,11 @@
                         </ol>
                     </div>
                     <button class="seeMore">
-                        See more &#8599
+                        Ver mais &#8599
                     </button>
+                    <a href="index.html#product-section" class="back_index">
+                        Voltar &#8592
+                    </a>
                 </div>
                 <div class="detail">
                     <div class="title">
@@ -230,8 +213,11 @@
                         </ol>
                     </div>
                     <button class="seeMore">
-                        See more &#8599
+                        Ver mais &#8599
                     </button>
+                    <a href="index.html#product-section" class="back_index">
+                        Voltar &#8592
+                    </a>
                 </div>
                 <div class="detail">
                     <div class="title">
@@ -297,13 +283,14 @@
                             <li>Aumentar força e potência muscular – ajuda a produzir energia rápida em exercícios intensos;</li>
                             <li>Melhora desempenho em treinos curtos e explosivos (como séries de musculação) ao elevar os níveis de fosfocreatina nos músculos;</li>
                             <li>Acelera recuperação entre séries e treinos pesados;</li>
-                            <li>Apoia aumento de massa magra quando combinado com dieta e treino adequado;</li>
-                            <li>Pode aumentar resistência e explosão muscular em atividades intensas.</li>
                         </ol>
                     </div>
                     <button class="seeMore">
-                        See more &#8599
+                        Ver mais &#8599
                     </button>
+                    <a href="index.html#product-section" class="back_index">
+                        Voltar &#8592
+                    </a>
                 </div>
                 <div class="detail">
                     <div class="title">
@@ -373,8 +360,11 @@
                         </ol>
                     </div>
                     <button class="seeMore">
-                        See more &#8599
+                        Ver mais &#8599
                     </button>
+                    <a href="index.html#product-section" class="back_index">
+                        Voltar &#8592
+                    </a>
                 </div>
                 <div class="detail">
                     <div class="title">
@@ -426,19 +416,48 @@
         </div>
         <div class="arrows">
             <button id="prev">&lt;</button>
-            <button id="back">Go Back &#8599</button>
+            <button id="back">Go Back &#8601</button>
             <button id="next">&gt;</button>
         </div>
     </div>
-    <footer class="footer">
+    <section class="chat-section">
+        <div class="chat-button" onclick="toggleChat()">
+            💬
+        </div>
+        <div class="chat-box" id="chatBox">            
+            <div class="chat-header">
+                Metamorphose Fit
+                <span onclick="toggleChat()">✖</span>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="bot-message">
+                    Olá 👋 Como podemos ajudar você hoje?
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </section>
+     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
-                © 2026 • Voyane Rogério • Todos os direitos reservados
+                © 2026 • Metamorphose Fit
             </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://facebook.com"><img src="./img/icons8-facebook-novo-48.png" alt=""></a>
+                    <a href=""><img src="./img/icons8-whatsapp-48.png" alt=""></a>
+                    <a href="https://instagram.com"><img src="./img/icons8-instagram-48.png" alt=""></a>
+                    <a href="https://tiktok.com"><img src="./img/icons8-tik-tok-48.png" alt=""></a>
+                </div>
 
-            <div class="footer-logo">
-                <img src="./img/meta_logo-removebg-preview.png" alt="">
+                <div class="footer-logo">
+                    <img src="./img/meta_logo-removebg-preview.png" alt="">
+                </div>
             </div>
+            
         </div>
     </footer> 
     <script src="JS/script.js"></script>
